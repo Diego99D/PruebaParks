@@ -1,0 +1,34 @@
+<h1>Listing Parks</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Address</th>
+      <th>Description</th>
+      <th>Size</th>
+      <th>Status</th>
+
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+<%= for park <- @parks do %>
+    <tr>
+      <td><%= park.name %></td>
+      <td><%= park.address %></td>
+      <td><%= park.description %></td>
+      <td><%= park.size %></td>
+      <td><%= park.status %></td>
+
+      <td>
+        <span><%= link "Show", to: Routes.park_path(@conn, :show, park) %></span>
+        <span><%= link "Edit", to: Routes.park_path(@conn, :edit, park) %></span>
+        <span><%= link "Delete", to: Routes.park_path(@conn, :delete, park), method: :delete, data: [confirm: "Are you sure?"] %></span>
+      </td>
+    </tr>
+<% end %>
+  </tbody>
+</table>
+
+<span><%= link "New Park", to: Routes.park_path(@conn, :new) %></span>

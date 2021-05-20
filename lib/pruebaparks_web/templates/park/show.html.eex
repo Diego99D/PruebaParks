@@ -1,0 +1,33 @@
+<h1>Show Park</h1>
+
+<ul>
+
+  <li>
+    <strong>Name:</strong>
+    <%= @park.name %>
+  </li>
+
+  <li>
+    <strong>Address:</strong>
+    <%= @park.address %>
+  </li>
+
+  <li>
+    <strong>Description:</strong>
+    <%= @park.description %>
+  </li>
+
+  <li>
+    <strong>Size:</strong>
+    <%= @park.size %>
+  </li>
+
+  <li>
+    <strong>Status:</strong>
+    <%= @park.status %>
+  </li>
+
+</ul>
+
+<span><%= link "Edit", to: Routes.park_path(@conn, :edit, @park) %></span>
+<span><%= link "Back", to: Routes.park_path(@conn, :index) %></span>
